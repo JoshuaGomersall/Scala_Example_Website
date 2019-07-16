@@ -31,12 +31,11 @@
 
     <div id="actions">
         @form(action=routes.HomeController.list()) {
-            <input type="search" id="searchbox" name="f" value="@currentFilter" placeholder="Filter by name...">
-            <input type="submit" id="searchsubmit" value="Filter by name" class="btn primary">
+            <input type="search" id="searchbox" name="f" value="@currentFilter" onchange=alert("Jeff") placeholder="Filter by name..."/>
+            <input type="submit" id="searchsubmit" value="Filter by name" class="btn primary"/>
         }
 
         <a class="btn success" id="add" href="@routes.HomeController.create()">Add a new item</a>
-
     </div>
 
     @Option(currentPage.items).filterNot(_.isEmpty).map { computers =>
@@ -44,7 +43,7 @@
         <table class="computers zebra-striped">
             <thead>
                 <tr>
-                    @header(2, "Computer name")
+                    @header(2, "Name")
                     @header(3, "Introduced")
                     @header(4, "Discontinued")
                     @header(5, "Company")

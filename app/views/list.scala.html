@@ -58,10 +58,10 @@
                         <tr>
                             <td><a href="@routes.HomeController.edit(computer.id.get)">@computer.name</a></td>
                             <td>
-                                @computer.introduced.map(_.format("yyyy-MM-dd")).getOrElse { <em>-</em> }
+                                @computer.introduced.map(_.format("dd MMM yyyy")).getOrElse { <em>-</em> }
                             </td>
                             <td>
-                                @computer.discontinued.map(_.format("yyyy-MM-dd")).getOrElse { <em>-</em> }
+                                @computer.discontinued.map(_.format("dd MMM yyyy")).getOrElse { <em>-</em> }
                             </td>
                             <td>
                                 @company.map(_.name).getOrElse { <em>-</em> }

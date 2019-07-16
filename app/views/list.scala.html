@@ -30,13 +30,12 @@
     }
 
     <div id="actions">
-
         @form(action=routes.HomeController.list()) {
-            <input type="search" id="searchbox" name="f" value="@currentFilter" placeholder="Filter by computer name...">
+            <input type="search" id="searchbox" name="f" value="@currentFilter" placeholder="Filter by name...">
             <input type="submit" id="searchsubmit" value="Filter by name" class="btn primary">
         }
 
-        <a class="btn success" id="add" href="@routes.HomeController.create()">Add a new computer</a>
+        <a class="btn success" id="add" href="@routes.HomeController.create()">Add a new item</a>
 
     </div>
 

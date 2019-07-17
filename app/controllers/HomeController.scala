@@ -38,10 +38,8 @@ class HomeController @Inject()(computerService: ComputerRepository,
   )
 
   // -- Actions
-
-  /**
-    * Handle default path requests, redirect to computers list
-    */
+  
+    //Default path requests, redirect to computers list
   def index = Action {
     Home
   }

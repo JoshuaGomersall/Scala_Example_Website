@@ -1,5 +1,9 @@
 html {
     background: #eee;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    align-content: center;
+    margin-top: 10vh;
 }
 
 header h1 {
@@ -17,7 +21,8 @@ section#main {
 
 label{
     text-align: center;
-    margin-left: 35vw;
+    align-content: center;
+    padding-left: 15vw;
  }
 
 section#main .topRight {

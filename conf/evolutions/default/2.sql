@@ -13,24 +13,6 @@ insert into computer (id,name,introduced,discontinued,company_id) values (4,'iPh
 insert into computer (id,name,introduced,discontinued,company_id) values (5,'iPhonDWAe 4S','2011-10-14',null,1);
 insert into computer (id,name,introduced,discontinued,company_id) values (6,'iPhonAWDWAeD 4S','2011-10-14',null,1);
 insert into computer (id,name,introduced,discontinued,company_id) values (7,'iPhoDAWne 4S','2011-10-14',null,1);
-insert into computer (id,name,introduced,discontinued,company_id) values (8,'iPhone 4S','2011-10-14',null,1);
-insert into computer (id,name,introduced,discontinued,company_id) values (9,'iPhone 4S','2011-10-14',null,1);
-insert into computer (id,name,introduced,discontinued,company_id) values (10,'iPhone 4S','2011-10-14',null,1);
-insert into computer (id,name,introduced,discontinued,company_id) values (11,'iPhone 4S','2011-10-14',null,1);
-insert into computer (id,name,introduced,discontinued,company_id) values (12,'iPhone 4S','2011-10-14',null,1);
-insert into computer (id,name,introduced,discontinued,company_id) values (13,'iPhone 4S','2011-10-14',null,1);
-insert into computer (id,name,introduced,discontinued,company_id) values (14,'iPhone 4S','2011-10-14',null,1);
-insert into computer (id,name,introduced,discontinued,company_id) values (15,'iPhone 4S','2011-10-14',null,1);
-insert into computer (id,name,introduced,discontinued,company_id) values (16,'iPhone 4S','2011-10-14',null,1);
-insert into computer (id,name,introduced,discontinued,company_id) values (17,'iPhone 4S','2011-10-14',null,1);
-insert into computer (id,name,introduced,discontinued,company_id) values (18,'iPhone 4S','2011-10-14',null,1);
-insert into computer (id,name,introduced,discontinued,company_id) values (19,'iPhone 4S','2011-10-14',null,1);
-insert into computer (id,name,introduced,discontinued,company_id) values (20,'iPhone 4S','2011-10-14',null,1);
-insert into computer (id,name,introduced,discontinued,company_id) values (574,'iPhone 4S','2011-10-14',null,1);
-insert into computer (id,name,introduced,discontinued,company_id) values (574,'iPhone 4S','2011-10-14',null,1);
-insert into computer (id,name,introduced,discontinued,company_id) values (574,'iPhone 4S','2011-10-14',null,1);
-insert into computer (id,name,introduced,discontinued,company_id) values (574,'iPhone 4S','2011-10-14',null,1);
-insert into computer (id,name,introduced,discontinued,company_id) values (574,'iPhone 4S','2011-10-14',null,1);
 
 
 # --- !Downs

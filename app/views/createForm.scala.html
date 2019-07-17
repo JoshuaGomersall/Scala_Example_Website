@@ -8,8 +8,6 @@
     
     @form(routes.HomeController.save()) {
 
-        Home.flashing
-
         <fieldset>
             @CSRF.formField
             @inputText(computerForm("name"), '_label -> "Computer name", '_help -> "")

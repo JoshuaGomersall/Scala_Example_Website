@@ -5,19 +5,21 @@
 # Default path will just redirect to the computer list
 GET     /                           controllers.HomeController.index
 
+GET     /aboutus                           controllers.HomeController.aboutUs
+
 # Computers list (look at the default values for pagination parameters)
 GET     /mainpage                  controllers.HomeController.list(p:Int ?= 0, s:Int ?= 2, f ?= "")
 
 # Add computer
 GET     /item/new              controllers.HomeController.create
-POST    /computers                  controllers.HomeController.save
+POST    /items                  controllers.HomeController.save
 
 # Edit existing computer
-GET     /computers/:id              controllers.HomeController.edit(id:Long)
-POST    /computers/:id              controllers.HomeController.update(id:Long)
+GET     /items/:id              controllers.HomeController.edit(id:Long)
+POST    /items/:id              controllers.HomeController.update(id:Long)
 
 # Delete a computer
-POST    /computers/:id/delete       controllers.HomeController.delete(id:Long)
+POST    /items/:id/delete       controllers.HomeController.delete(id:Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

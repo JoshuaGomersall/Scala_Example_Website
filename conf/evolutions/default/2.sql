@@ -15,7 +15,6 @@ insert into computer (id,name,introduced,discontinued,company_id) values (6,'iPh
 insert into computer (id,name,introduced,discontinued,company_id) values (7,'iPhoDAWne 4S','2011-10-14',null,1);
 
 
-# --- !Downs
-
+# --- !Drops
 delete from computer;
 delete from company;

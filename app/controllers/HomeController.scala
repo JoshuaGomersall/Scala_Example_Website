@@ -44,7 +44,13 @@ class HomeController @Inject()(computerService: ComputerRepository,
     Home
   }
 
-  /**
+  def aboutUs = Action.async { implicit request =>
+    companyService.options.map { options =>
+      Ok(html.createForm(computerForm, options))
+    }
+  }
+
+    /**
     * Display the paginated list of computers.
     *
     * @param page    Current page number (starts from 0)

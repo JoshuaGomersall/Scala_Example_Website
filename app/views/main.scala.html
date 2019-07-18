@@ -16,31 +16,13 @@
     </head>
     <body>
 
-        <header class="topbar">
-            <h1 class="fill" id="header-title">
-                <img width="50" height="40" src="https://www.axelos.com/Corporate/media/Images/Website%20Assets/Strategic%20ATO%20Logos/QA-Limited-Logo.gif?width=924&height=650&ext=.gif"/>
-                <a href="@routes.HomeController.index()">
-                    QA Cinema
-                </a>
-                <div class="topnav">
-                <a class="active" href="/">Home</a>
-                <a href="/item/new">Add New Item</a>
-                <a href="/aboutus">About</a>
-            </div>
-            </h1>
-        </header>
+        @header()
 
         <section id="main">
             @content
         </section>
 
-        <footer class="bottombar">
-            <h1 class="fill" id="header-title">
-                <a href="@routes.HomeController.index()">
-                    QA Cinema
-                </a>
-            </h1>
-        </footer>
+        @footer()
 
     </body>
 </html>

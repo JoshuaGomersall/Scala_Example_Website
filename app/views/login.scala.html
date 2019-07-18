@@ -1,0 +1,23 @@
+@(loginForm: Form[Computer], companies: Seq[(String, String)])(implicit requestHeader: MessagesRequestHeader)
+
+@import views.html.helper._
+
+@main {
+
+    <h1>Login</h1>
+
+    @form(routes.HomeController.save()) {
+
+        <fieldset>
+            @CSRF.formField
+            @inputText(loginForm("username"), '_label -> "UserName", '_help -> "")
+            @inputPassword(loginForm("password"), '_label -> "Password", '_help -> "")
+        </fieldset>
+
+        <div class="actions">
+            <input type="submit" value="Login" class="btn primary"> or
+        </div>
+
+    }
+
+}

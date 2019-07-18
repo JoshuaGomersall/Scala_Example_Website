@@ -6,6 +6,11 @@ html {
     margin-top: 10vh;
 }
 
+.error {
+    color: red;
+}
+
+
 .topnav {
     overflow: hidden;
     background-color: blueviolet;

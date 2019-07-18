@@ -24,6 +24,8 @@ class HomeController @Inject()(computerService: ComputerRepository,
     */
   val Home = Redirect(routes.HomeController.list(0, 2, ""))
 
+  val loggedIn = false
+
   /**
     * Describe the computer form (used in both edit and create screens).
     */
@@ -38,16 +40,9 @@ class HomeController @Inject()(computerService: ComputerRepository,
   )
 
   // -- Actions
-  
-    //Default path requests, redirect to computers list
+  //    Default path requests, redirect to computers list
   def index = Action {
-    Home
-  }
-
-  def aboutUs = Action.async { implicit request =>
-    companyService.options.map { options =>
-      Ok(html.createForm(computerForm, options))
-    }
+      Home
   }
 
     /**

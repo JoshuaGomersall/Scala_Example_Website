@@ -10,6 +10,9 @@ html {
     color: red;
 }
 
+.flex{
+    display: flex;
+}
 
 .topnav {
     overflow: hidden;

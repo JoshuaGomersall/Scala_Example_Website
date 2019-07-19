@@ -6,13 +6,13 @@ set ignorecase true;
 
 create table company (
                          id                        bigint not null,
-                         name                      varchar(255) not null,
+                         name                      varchar(25) not null,
                          constraint pk_company primary key (id))
 ;
 
 create table computer (
                           id                        bigint not null,
-                          name                      varchar(255) not null,
+                          name                      varchar(25) not null,
                           introduced                timestamp,
                           discontinued              timestamp,
                           company_id                bigint,

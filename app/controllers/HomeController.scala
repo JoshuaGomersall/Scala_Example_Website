@@ -42,7 +42,12 @@ class HomeController @Inject()(computerService: ComputerRepository,
   // -- Actions
   //    Default path requests, redirect to computers list
   def index = Action {
+    if (loggedIn) {
       Home
+    }
+    else {
+      Redirect("/login")
+    }
   }
 
     /**
@@ -114,7 +119,7 @@ class HomeController @Inject()(computerService: ComputerRepository,
       },
       computer => {
         computerService.insert(computer).map { _ =>
-          Home.flashing("success" -> "Computer %s has been created".format(computer.name))
+          Home.flashing("success" -> "Item %s has been created".format(computer.name))
         }
       }
     )
@@ -125,7 +130,7 @@ class HomeController @Inject()(computerService: ComputerRepository,
     */
   def delete(id: Long) = Action.async {
     computerService.delete(id).map { _ =>
-      Home.flashing("success" -> "Computer has been deleted")
+      Home.flashing("success" -> "Item has been deleted")
     }
   }
 

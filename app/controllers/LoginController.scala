@@ -1,9 +1,12 @@
 package controllers
 
+import java.io.File
+
 import javax.inject.Inject
 import models._
 import play.api.mvc._
 import Login._
+import akka.util.ByteString
 import play.api.data.Form
 import play.api.data.Forms.{date, ignored, longNumber, mapping, optional}
 import views.html
@@ -14,7 +17,9 @@ import play.api.data._
 import play.api.mvc._
 import views._
 
+
 import scala.concurrent.ExecutionContext
+import scala.io.Source
 
 /**
   * Manage a database of computers
@@ -60,4 +65,5 @@ class LoginController @Inject()(computerService: ComputerRepository,
       Redirect("/login")
     }
   }
+
 }

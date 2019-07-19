@@ -10,8 +10,7 @@
 
         <fieldset>
             @CSRF.formField
-            @inputText(computerForm("name"), '_label -> "Computer name", '_help -> "")
-            @inputFile(computerForm("image"), '_label -> "Image Of Film", '_help -> "")
+            @inputText(computerForm("name"), '_label -> "Item name", '_help -> "")
             @inputDate(computerForm("introduced"), '_label -> "Introduced Date", '_help -> "")
             @inputDate(computerForm("discontinued"), '_label -> "Discontinued Date", '_help -> "")
 

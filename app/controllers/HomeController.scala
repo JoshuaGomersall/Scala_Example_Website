@@ -89,7 +89,7 @@ class HomeController @Inject()(computerService: ComputerRepository,
       },
       computer => {
         computerService.update(id, computer).map { _ =>
-          Home.flashing("success" -> "Computer %s has been updated".format(computer.name))
+          Home.flashing("success" -> "Item %s has been updated".format(computer.name))
         }
       }
     )

@@ -13,7 +13,7 @@ html {
 
 .topnav {
     overflow: hidden;
-    background-color: blueviolet;
+    background-color: deepskyblue;
 }
 
 .topnav a {
@@ -31,8 +31,8 @@ html {
 }
 
 .topnav a.active {
-    background-color: #4CAF50;
-    color: white;
+    background-color: white;
+    color: black;
 }
 
 header h1 {

@@ -39,6 +39,13 @@
 
         <a class="btn success" id="add" href="@routes.HomeController.create()">Add A New Player</a>
     </div>
+    }else{
+        <div id="actions">
+            @form(action=routes.LeaderboardController.leaderboard()) {
+                <input type="search" id="searchbox" name="f" value="@currentFilter" placeholder="Filter by name..."/>
+                        <input type="submit" id="searchsubmit" value="Filter by name" class="btn primary"/>
+            }
+        </div>
     }
 
     @Option(currentPage.items).filterNot(_.isEmpty).map { players =>

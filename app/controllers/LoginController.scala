@@ -37,8 +37,8 @@ class LoginController @Inject()(computerService: ComputerRepository,
     mapping(
       "id" -> ignored(None: Option[Long]),
       "name" -> nonEmptyText,
-      "introduced" -> optional(date("yyyy-MM-dd")),
-      "discontinued" -> optional(date("yyyy-MM-dd")),
+      "introduced" -> optional(longNumber),
+      "discontinued" -> optional(longNumber),
       "company" -> optional(longNumber)
     )(Computer.apply)(Computer.unapply)
   )

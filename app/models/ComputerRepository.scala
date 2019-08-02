@@ -11,8 +11,8 @@ import scala.concurrent.Future
 
 case class Computer(id: Option[Long] = None,
                     name: String,
-                    introduced: Option[Date],
-                    discontinued: Option[Date],
+                    win: Option[Long],
+                    loss: Option[Long],
                     companyId: Option[Long])
 
 object Computer {
@@ -42,11 +42,11 @@ class ComputerRepository @Inject()(dbapi: DBApi, companyRepository: CompanyRepos
   private val simple = {
     get[Option[Long]]("computer.id") ~
       get[String]("computer.name") ~
-      get[Option[Date]]("computer.introduced") ~
-      get[Option[Date]]("computer.discontinued") ~
+      get[Option[Long]]("computer.win") ~
+      get[Option[Long]]("computer.loss") ~
       get[Option[Long]]("computer.company_id") map {
-      case id ~ name ~ introduced ~ discontinued ~ companyId =>
-        Computer(id, name, introduced, discontinued, companyId)
+      case id ~ name ~ win ~ loss ~ companyId =>
+        Computer(id, name, win, loss, companyId)
     }
   }
 

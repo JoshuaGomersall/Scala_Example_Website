@@ -2,12 +2,16 @@
 
 # --- !Ups
 
-insert into company (id,name) values (  1,'Valenciargo');
-insert into company (id,name) values (  2,'M4g1yK Tr1cKz');
-insert into company (id,name) values (  3,' ThisGuyOnceSaid');
+insert into company (id,name) values (  1,'Waiting');
+insert into company (id,name) values (  2,'In Progress');
+insert into company (id,name) values (  3,'Done');
 
-insert into computer (id,name,introduced,discontinued,company_id) values (1,'Gateway LT3103U','2008-01-01',null,null);
-
+insert into computer (id,name,win,loss,company_id) values (1,'John',3,0,1);
+insert into computer (id,name,win,loss,company_id) values (2,'Bruno',33,5,3);
+insert into computer (id,name,win,loss,company_id) values (3,'Valentin',4,1,3);
+insert into computer (id,name,win,loss,company_id) values (109,'Luke',10,-1,3);
+insert into computer (id,name,win,loss,company_id) values (49,'Joe Simmons',8,21,2);
+insert into computer (id,name,win,loss,company_id) values (4,'New Guy',0,0,null);
 
 # --- !Drops
 delete from computer;

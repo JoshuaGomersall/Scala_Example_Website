@@ -1,4 +1,4 @@
-name := "play-scala-anorm-example"
+name := "Nebulous"
 
 version := "2.7.x"
 

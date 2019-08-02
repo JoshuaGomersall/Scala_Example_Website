@@ -9,6 +9,8 @@ GET     /login                           controllers.LoginController.login
 #POST     /login                           controllers.LoginController.postlogin
 
 
+#GET     /aboutus                           controllers.AboutUsController.aboutUs
+
 GET     /download                    controllers.FileAndDownLoadsController.basicDownload()
 
 # Computers list (look at the default values for pagination parameters)

@@ -24,7 +24,7 @@ class HomeController @Inject()(computerService: ComputerRepository,
     */
   val Home = Redirect(routes.HomeController.list(0, 2, ""))
 
-  val loggedIn = false
+  val loggedIn = true
 
   /**
     * Describe the computer form (used in both edit and create screens).
@@ -33,8 +33,8 @@ class HomeController @Inject()(computerService: ComputerRepository,
     mapping(
       "id" -> ignored(None: Option[Long]),
       "name" -> nonEmptyText,
-      "introduced" -> optional(date("yyyy-MM-dd")),
-      "discontinued" -> optional(date("yyyy-MM-dd")),
+      "win" -> optional(longNumber),
+      "loss" -> optional(longNumber),
       "company" -> optional(longNumber)
     )(Computer.apply)(Computer.unapply)
   )
@@ -46,7 +46,7 @@ class HomeController @Inject()(computerService: ComputerRepository,
       Home
     }
     else {
-      Redirect("/login")
+      Redirect("/")
     }
   }
 

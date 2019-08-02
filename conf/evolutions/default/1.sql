@@ -13,8 +13,8 @@ create table company (
 create table computer (
                           id                        bigint not null,
                           name                      varchar(25) not null,
-                          introduced                timestamp,
-                          discontinued              timestamp,
+                          win                       bigint,
+                          loss                      bigint,
                           company_id                bigint,
                           constraint pk_computer primary key (id))
 ;

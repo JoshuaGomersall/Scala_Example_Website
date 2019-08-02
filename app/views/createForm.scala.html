@@ -11,8 +11,8 @@
         <fieldset>
             @CSRF.formField
             @inputText(computerForm("name"), '_label -> "Item name", '_help -> "")
-            @inputDate(computerForm("introduced"), '_label -> "Introduced Date", '_help -> "")
-            @inputDate(computerForm("discontinued"), '_label -> "Discontinued Date", '_help -> "")
+            @inputText(computerForm("win"), '_label -> "Wins", '_help -> "", 'type -> "number")
+            @inputText(computerForm("loss"), '_label -> "Loss", '_help -> "", 'type -> "number")
 
             @select(
                 computerForm("company"), 

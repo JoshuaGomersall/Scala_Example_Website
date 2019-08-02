@@ -37,9 +37,9 @@
             <thead>
                 <tr>
                     @header(2, "Name")
-                    @header(3, "Introduced")
-                    @header(4, "Discontinued")
-                    @header(5, "Company")
+                    @header(3, "Win")
+                    @header(4, "Loss")
+                    @header(5, "Game Status")
                 </tr>
             </thead>
             <tbody>
@@ -49,10 +49,10 @@
                         <tr>
                             <td><a href="@routes.HomeController.edit(computer.id.get)">@computer.name</a></td>
                             <td>
-                                @computer.introduced.map(_.format("dd MMM yyyy")).getOrElse { <em>-</em> }
+                                @computer.win.getOrElse { <em>-</em> }
                             </td>
                             <td>
-                                @computer.discontinued.map(_.format("dd MMM yyyy")).getOrElse { <em>-</em> }
+                                @computer.loss.getOrElse { <em>-</em> }
                             </td>
                             <td>
                                 @company.map(_.name).getOrElse { <em>-</em> }

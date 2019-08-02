@@ -4,39 +4,39 @@
 
 set ignorecase true;
 
-create table company (
+create table gamestatus (
                          id                        bigint not null,
-                         name                      varchar(25) not null,
-                         constraint pk_company primary key (id))
+                         name                      varchar(80) not null,
+                         constraint pk_gamestatus primary key (id))
 ;
 
-create table computer (
+create table player (
                           id                        bigint not null,
                           name                      varchar(25) not null,
                           win                       bigint,
                           loss                      bigint,
-                          company_id                bigint,
-                          constraint pk_computer primary key (id))
+                          gamestatus_id                bigint,
+                          constraint pk_player primary key (id))
 ;
 
-create sequence company_seq start with 1000;
+create sequence gametatus_seq start with 1000;
 
-create sequence computer_seq start with 1000;
+create sequence player_seq start with 1000;
 
-alter table computer add constraint fk_computer_company_1 foreign key (company_id) references company (id) on delete restrict on update restrict;
-create index ix_computer_company_1 on computer (company_id);
+alter table player add constraint fk_player_gamestatus_1 foreign key (gamestatus_id) references gamestatus (id) on delete restrict on update restrict;
+create index ix_player_gamestatus_1 on player (gamestatus_id);
 
 
 # --- !Downs
 
 SET REFERENTIAL_INTEGRITY FALSE;
 
-drop table if exists company;
+drop table if exists gamestatus;
 
-drop table if exists computer;
+drop table if exists player;
 
 SET REFERENTIAL_INTEGRITY TRUE;
 
-drop sequence if exists company_seq;
+drop sequence if exists gametatus_seq;
 
-drop sequence if exists computer_seq;
+drop sequence if exists player_seq;

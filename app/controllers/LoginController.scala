@@ -22,10 +22,10 @@ import scala.concurrent.ExecutionContext
 import scala.io.Source
 
 /**
-  * Manage a database of computers
+  * Manage a database of players
   */
-class LoginController @Inject()(computerService: ComputerRepository,
-                                companyService: CompanyRepository,
+class LoginController @Inject()(playerService: playerRepository,
+                                gamestatusService: gamestatusRepository,
                                 cc: MessagesControllerComponents)(implicit ec: ExecutionContext)
   extends MessagesAbstractController(cc) {
 
@@ -33,24 +33,24 @@ class LoginController @Inject()(computerService: ComputerRepository,
   val loggedIn = false
   private val logger = play.api.Logger(this.getClass)
 
-  val computerForm = Form(
+  val playerForm = Form(
     mapping(
       "id" -> ignored(None: Option[Long]),
       "name" -> nonEmptyText,
       "introduced" -> optional(longNumber),
       "discontinued" -> optional(longNumber),
-      "company" -> optional(longNumber)
-    )(Computer.apply)(Computer.unapply)
+      "gamestatus" -> optional(longNumber)
+    )(player.apply)(player.unapply)
   )
 
   def login = Action.async { implicit request =>
-    computerForm.bindFromRequest.fold(
-      formWithErrors => companyService.options.map { options =>
+    playerForm.bindFromRequest.fold(
+      formWithErrors => gamestatusService.options.map { options =>
         BadRequest(html.login(formWithErrors, options))
       },
-      computer => {
-        computerService.insert(computer).map { _ =>
-          Home.flashing("success" -> "User Has Loggedin".format(computer.name))
+      player => {
+        playerService.insert(player).map { _ =>
+          Home.flashing("success" -> "User Has Loggedin".format(player.name))
         }
       }
     )

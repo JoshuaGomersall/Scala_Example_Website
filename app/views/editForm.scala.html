@@ -1,4 +1,4 @@
-@(id: Long, computerForm: Form[Computer], companies : Seq[(String, String)])(implicit requestHeader: MessagesRequestHeader)
+@(id: Long, playerForm: Form[player], companies : Seq[(String, String)])(implicit requestHeader: MessagesRequestHeader)
 
 @import views.html.helper._
 
@@ -8,16 +8,16 @@
     
     @form(routes.HomeController.update(id)) {
             @CSRF.formField
-            @inputText(computerForm("name"), '_label -> "Item name", '_help -> "")
+            @inputText(playerForm("name"), '_label -> "Item name", '_help -> "")
             @select(
-                computerForm("company"), 
+                playerForm("gamestatus"),
                 companies, 
                 '_label -> "Game Status", '_default -> "-- Choose Game Status --",
                 '_showConstraints -> false
             )
         </fieldset>
-        @inputText(computerForm("win"), '_label -> "Win", '_help -> "",'type -> "number")
-        @inputText(computerForm("loss"), '_label -> "Loss", '_help -> "" ,'type -> "number")
+        @inputText(playerForm("win"), '_label -> "Win", '_help -> "",'type -> "number")
+        @inputText(playerForm("loss"), '_label -> "Loss", '_help -> "" ,'type -> "number")
 
 
         <div class="actions">
@@ -31,6 +31,6 @@
     
     @form(routes.HomeController.delete(id), 'class -> "topRight") {
         @CSRF.formField
-        <input type="submit" value="Delete this computer" class="btn danger">
+        <input type="submit" value="Delete this player" class="btn danger">
     }
 }

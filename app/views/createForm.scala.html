@@ -1,4 +1,4 @@
-@(computerForm: Form[Computer], companies: Seq[(String, String)])(implicit requestHeader: MessagesRequestHeader)
+@(playerForm: Form[player], gamestatus: Seq[(String, String)])(implicit requestHeader: MessagesRequestHeader)
 
 @import views.html.helper._
 
@@ -10,14 +10,14 @@
 
         <fieldset>
             @CSRF.formField
-            @inputText(computerForm("name"), '_label -> "Item name", '_help -> "")
-            @inputText(computerForm("win"), '_label -> "Wins", '_help -> "", 'type -> "number")
-            @inputText(computerForm("loss"), '_label -> "Loss", '_help -> "", 'type -> "number")
+            @inputText(playerForm("name"), '_label -> "Item name", '_help -> "")
+            @inputText(playerForm("win"), '_label -> "Wins", '_help -> "", 'type -> "number")
+            @inputText(playerForm("loss"), '_label -> "Loss", '_help -> "", 'type -> "number")
 
             @select(
-                computerForm("company"), 
-                companies, 
-                '_label -> "Company", '_default -> "-- Choose a company --",
+                playerForm("Game Status"),
+                gamestatus,
+                '_label -> "Game Status", '_default -> "-- Choose A Game Status --",
                 '_showConstraints -> false
             )
         </fieldset>

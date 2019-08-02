@@ -1,4 +1,4 @@
-@(currentPage: Page[(Computer, Option[Company])], currentOrderBy: Int, currentFilter: String)(implicit request: MessagesRequestHeader)
+@(currentPage: Page[(player, Option[gamestatus])], currentOrderBy: Int, currentFilter: String)(implicit request: MessagesRequestHeader)
 
 @import helper._
 
@@ -15,7 +15,7 @@
 }
 
 @main {
-    <h1 id="section-title">@Messages("computers.list.title", currentPage.total)</h1>
+    <h1 id="section-title">@Messages("players.list.title", currentPage.total)</h1>
 
     @request.flash.get("success").map { message =>
         <div class="alert-message warning">
@@ -32,8 +32,8 @@
         <a class="btn success" id="add" href="@routes.HomeController.create()">Add a new item</a>
     </div>
 
-    @Option(currentPage.items).filterNot(_.isEmpty).map { computers =>
-        <table class="computers zebra-striped">
+    @Option(currentPage.items).filterNot(_.isEmpty).map { players =>
+        <table class="players zebra-striped">
             <thead>
                 <tr>
                     @header(2, "Name")
@@ -44,18 +44,18 @@
             </thead>
             <tbody>
 
-                @computers.map {
-                    case (computer, company) => {
+                @players.map {
+                    case (player, gamestatus) => {
                         <tr>
-                            <td><a href="@routes.HomeController.edit(computer.id.get)">@computer.name</a></td>
+                            <td><a href="@routes.HomeController.edit(player.id.get)">@player.name</a></td>
                             <td>
-                                @computer.win.getOrElse { <em>-</em> }
+                                @player.win.getOrElse { <em>0</em> }
                             </td>
                             <td>
-                                @computer.loss.getOrElse { <em>-</em> }
+                                @player.loss.getOrElse { <em>0</em> }
                             </td>
                             <td>
-                                @company.map(_.name).getOrElse { <em>-</em> }
+                                @gamestatus.map(_.name).getOrElse { <em>User Pending</em> }
                             </td>
                         </tr>
                     }
@@ -76,7 +76,7 @@
                     </li>
                 }
                 <li class="current">
-                    <a>Displaying @(currentPage.offset + 1) to @(currentPage.offset + computers.size) of @currentPage.total</a>
+                    <a>Displaying @(currentPage.offset + 1) to @(currentPage.offset + players.size) of @currentPage.total</a>
                 </li>
                 @currentPage.next.map { page =>
                     <li class="next">

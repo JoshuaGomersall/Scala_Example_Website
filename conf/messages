@@ -1,3 +1,7 @@
 # Messages
 
-players.list.title={0,choice,0#No computers|1#One player|1<{0,number,integer} Players} Found
+players.list.title={0,choice,0#No Players|1#One Player|1<{0,number,integer} Players} Found
+
+
+
+aboutus.info=The main goal of this project is to provide a platform for hosting tournaments for multiple games.The wording used is very generic as to not focus on one specific type of game and instead have the option for multiple types of games and genres

@@ -8,7 +8,9 @@ GET     /                           controllers.HomeController.index
 GET     /login                           controllers.LoginController.login
 #POST     /login                           controllers.LoginController.postlogin
 
-#GET     /aboutus                           controllers.AboutUsController.aboutUs
+GET     /leaderboard                    controllers.LeaderboardController.leaderboard(p:Int ?= 0, s:Int ?= 2, f ?= "")
+
+GET     /aboutus                        controllers.AboutUsController.aboutUs(p:Int ?= 0, s:Int ?= 2, f ?= "")
 
 # Computers list (look at the default values for pagination parameters)
 GET     /mainpage                  controllers.HomeController.list(p:Int ?= 0, s:Int ?= 2, f ?= "")

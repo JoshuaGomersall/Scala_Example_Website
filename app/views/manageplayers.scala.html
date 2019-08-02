@@ -1,11 +1,17 @@
-@(currentPage: Page[(player, Option[gamestatus])], currentOrderBy: Int, currentFilter: String)(implicit request: MessagesRequestHeader)
+@(currentPage: Page[(player, Option[gamestatus])], currentOrderBy: Int, currentFilter: String ,managermode : Boolean)(implicit request: MessagesRequestHeader)
 
 @import helper._
 
 @link(newPage: Int, newOrderBy: Option[Int] = None) = @{
-    routes.HomeController.list(newPage, newOrderBy.map { orderBy =>
-        if(orderBy == scala.math.abs(currentOrderBy)) -currentOrderBy else orderBy
-    }.getOrElse(currentOrderBy), currentFilter)
+    if(managermode) {
+        routes.HomeController.list(newPage, newOrderBy.map { orderBy =>
+            if(orderBy == scala.math.abs(currentOrderBy)) -currentOrderBy else orderBy
+        }.getOrElse(currentOrderBy), currentFilter)
+    }else{
+        routes.LeaderboardController.leaderboard(newPage, newOrderBy.map { orderBy =>
+            if(orderBy == scala.math.abs(currentOrderBy)) -currentOrderBy else orderBy
+        }.getOrElse(currentOrderBy), currentFilter)
+    }
 }
 
 @header(orderBy: Int, title: String) = {
@@ -15,22 +21,25 @@
 }
 
 @main {
+    @if(managermode){
     <h1 id="section-title">@Messages("players.list.title", currentPage.total)</h1>
+    }
 
     @request.flash.get("success").map { message =>
         <div class="alert-message warning">
             <strong>Done!</strong> @message
         </div>
     }
-
+    @if(managermode){
     <div id="actions">
         @form(action=routes.HomeController.list()) {
             <input type="search" id="searchbox" name="f" value="@currentFilter" placeholder="Filter by name..."/>
             <input type="submit" id="searchsubmit" value="Filter by name" class="btn primary"/>
         }
 
-        <a class="btn success" id="add" href="@routes.HomeController.create()">Add a new item</a>
+        <a class="btn success" id="add" href="@routes.HomeController.create()">Add A New Player</a>
     </div>
+    }
 
     @Option(currentPage.items).filterNot(_.isEmpty).map { players =>
         <table class="players zebra-striped">
@@ -47,7 +56,10 @@
                 @players.map {
                     case (player, gamestatus) => {
                         <tr>
+                            @if(managermode){
                             <td><a href="@routes.HomeController.edit(player.id.get)">@player.name</a></td>
+                            }else{
+                            <td>@player.name</td>}
                             <td>
                                 @player.win.getOrElse { <em>0</em> }
                             </td>

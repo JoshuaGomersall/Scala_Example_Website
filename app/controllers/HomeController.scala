@@ -46,7 +46,7 @@ class HomeController @Inject()(playerService: playerRepository,
       Home
     }
     else {
-      Redirect("/")
+      Redirect("/leaderboard")
     }
   }
 
@@ -59,7 +59,7 @@ class HomeController @Inject()(playerService: playerRepository,
     */
   def list(page: Int, orderBy: Int, filter: String) = Action.async { implicit request =>
     playerService.list(page = page, orderBy = orderBy, filter = ("%" + filter + "%")).map { page =>
-      Ok(html.list(page, orderBy, filter))
+      Ok(html.manageplayers(page, orderBy, filter,true))
     }
   }
 

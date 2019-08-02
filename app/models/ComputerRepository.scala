@@ -109,8 +109,8 @@ class ComputerRepository @Inject()(dbapi: DBApi, companyRepository: CompanyRepos
   def update(id: Long, computer: Computer) = Future {
     db.withConnection { implicit connection =>
       SQL("""
-        update computer set name = {name}, introduced = {introduced}, 
-          discontinued = {discontinued}, company_id = {companyId}
+        update computer set name = {name}, win = {win},
+          loss = {loss}, company_id = {companyId}
         where id = {id}
       """).bind(computer.copy(id = Some(id)/* ensure */)).executeUpdate()
       // case class binding using ToParameterList,
@@ -128,7 +128,7 @@ class ComputerRepository @Inject()(dbapi: DBApi, companyRepository: CompanyRepos
       SQL("""
         insert into computer values (
           (select next value for computer_seq),
-          {name}, {introduced}, {discontinued}, {companyId}
+          {name}, {win}, {loss}, {companyId}
         )
       """).bind(computer).executeInsert()
     }

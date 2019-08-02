@@ -94,7 +94,7 @@ class HomeController @Inject()(computerService: ComputerRepository,
       },
       computer => {
         computerService.update(id, computer).map { _ =>
-          Home.flashing("success" -> "Item %s has been updated".format(computer.name))
+          Home.flashing("success" -> "Player %s has been updated".format(computer.name))
         }
       }
     )
@@ -119,7 +119,7 @@ class HomeController @Inject()(computerService: ComputerRepository,
       },
       computer => {
         computerService.insert(computer).map { _ =>
-          Home.flashing("success" -> "Item %s has been created".format(computer.name))
+          Home.flashing("success" -> "Player %s has been created".format(computer.name))
         }
       }
     )
@@ -130,7 +130,7 @@ class HomeController @Inject()(computerService: ComputerRepository,
     */
   def delete(id: Long) = Action.async {
     computerService.delete(id).map { _ =>
-      Home.flashing("success" -> "Item has been deleted")
+      Home.flashing("success" -> "Player has been deleted")
     }
   }
 

@@ -37,8 +37,8 @@ class LoginController @Inject()(playerService: playerRepository,
     mapping(
       "id" -> ignored(None: Option[Long]),
       "name" -> nonEmptyText,
-      "introduced" -> optional(longNumber),
-      "discontinued" -> optional(longNumber),
+      "win" -> optional(longNumber),
+      "loss" -> optional(longNumber),
       "gamestatus" -> optional(longNumber)
     )(player.apply)(player.unapply)
   )

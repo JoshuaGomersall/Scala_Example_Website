@@ -64,11 +64,16 @@ center{
     align-content: center;
 }
 
-/*label{*/
-/*    text-align: center;*/
-/*    align-content: center;*/
-/*    padding-left: 15vw;*/
-/* }*/
+.white{
+    text-align: center;
+    align-content: center;
+    color: white;
+}
+
+.white a:hover {
+    color: white;
+    text-decoration: underline;
+}
 
 section#main .topRight {
     position: absolute;

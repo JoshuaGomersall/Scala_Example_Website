@@ -51,6 +51,12 @@ section#main {
     border-bottom: 1px solid #ccc;
 }
 
+.fill{
+    background-color: black;
+    color: white;
+
+}
+
 label{
     text-align: center;
     align-content: center;
